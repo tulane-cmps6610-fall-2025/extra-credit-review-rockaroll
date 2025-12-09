@@ -29,7 +29,7 @@ Here based on the question the work done by quicksort is O(nlogn) meaning that t
 
 The probability that is being calculated is:
 
-$P[X>=c2*n^2] <= E[X]/c2*n^2$ (Here a is $\delta(n^2)$ because this the least amount of work taken to complete event X that is quicksort)
+$P[X>=c2*n^2] <= E[X]/c2*n^2$ (Here a is $\Omega(n^2)$ because this the least amount of work taken to complete event X that is quicksort)
 
 <= $c1*nlogn/c2*n^2$
 
@@ -39,7 +39,7 @@ $P[X>=c2*n^2] <= E[X]/c2*n^2$ (Here a is $\delta(n^2)$ because this the least am
 
 Similarly as 3a except this time a = $10^c n\log n$
 
-$P[X>=cn\log n] <= E[X]/10^c n\log n$ (Here a is $\omega(n^2)$ because this the least amount of work taken to complete event X that is quicksort)
+$P[X>=cn\log n] <= E[X]/10^c n\log n$ (Here a is $\Omega(n^2)$ because this the least amount of work taken to complete event X that is quicksort)
 
 <= $c1*n\log n/10^c n\log n$
 
