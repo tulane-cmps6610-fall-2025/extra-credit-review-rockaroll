@@ -19,8 +19,7 @@ This can be observed with merge sort:
 1. An unsorted array is split into two subproblems. These subproblems are sorted individually
 2. After the array is merged again on completion of step-1 the algorithm checks if the array still remains unsorted. It swaps the elements on each other if they are in the wrong order.
 
-In this case the subproblems can be sorted only one way. While Divide and Conquer is developing a solution for the larger problem from a smaller problem in this case the answer is either the right and wrong choice.  
-
+In this case the subproblems can be sorted only one way. While Divide and Conquer is developing a solution for the larger problem from a smaller problem in this case the answer is either the right or the wrong choice.  
 
 3. **Randomization**
 
@@ -39,7 +38,7 @@ $P[X>=c2*n^2] <= E[X]/c2*n^2$ (Here a is $\Omega(n^2)$ because this the least am
 
 Similarly as 3a except this time a = $10^c n\log n$
 
-$P[X>=cn\log n] <= E[X]/10^c n\log n$ (Here a is $\Omega(n^2)$ because this the least amount of work taken to complete event X that is quicksort)
+$P[X>=cn\log n] <= E[X]/10^c n\log n$ (Here a is $\\Omega(n^2)$ because this the least amount of work taken to complete event X that is quicksort)
 
 <= $c1*n\log n/10^c n\log n$
 
@@ -47,7 +46,48 @@ $P[X>=cn\log n] <= E[X]/10^c n\log n$ (Here a is $\Omega(n^2)$ because this the 
 
 
 4. **Greedy Algorithms**
+Proof:
+Consider an optimal schedule S where two jobs X and Y are concurrently scheduled.  Even though Y comes after X in the schedule it is horter in terms of wait time.
+
+For schedule S:
+
+Wait Time for X in S(wx) = Wait time for Jobs before X(wb)
+
+Wait Time for Y in S(wy) = wb + wx
+ 
+Now lets assume there is another schedule S' where Y is swapped with X such that it comes before X in terms of execution:
+
+Wait Time for Y in S'(wy) = Wait time for Jobs before Y(wb)
+
+Wait Time for X in S'(wx) = wb + wy
+ 
+The total wait time contribution by X and Y in S and S' 
+
+Total Contribution (S) = wx + 2wb
+
+Total Contribution (S') = wy + 2wb 
+
+Here wy < wx:
+
+    wy < wx
+
+    wy + 2wb < wx + 2wb (Add 2wb on both sides)
+
+    S' < S
+
+This proves that that scheduling jobs in order of their processing times i.e (shortest-job-first) results in an optimal schedule.
 
 5. **Dynamic Programming**
 
+An example for an optimal substructure recurrence with no parallelism is the Fibonacci Series.  The recurrence relation is given by:
+
+         F(n) = F(n-1) + F(n-2)
+
+Here F(n-1) will then be calculated from F(n-2) and F(n-3). Because how the recurrence unfolds there is no parallelism that can be performed here and all the computations are sequential.
+
+Meanwhile an example of ideal span within a solution that has an optimal substructure is prefix sum calculation or scan.
+
+
 6. **Graphs**
+
+Here to obtain the MST both prim's and Kruskals algorithms work towards always making the minimum choice in terms of edges as they are both greedy algorithms. This fact alone itself proves that the largest weight would never be part of the solution simply because there is always an edge smaller in comparison that would be included in the MST. 
